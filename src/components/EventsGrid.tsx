@@ -88,7 +88,8 @@ const EventsGrid: React.FC<{
     .filter(
       (event) =>
         searchTerm === "" ||
-        event.name.toLowerCase().includes(searchTerm.toLowerCase()) // Check if event name includes the search term
+        event.name.toLowerCase().includes(searchTerm.toLowerCase()) || // Check if event name includes the search term
+        event.description?.toLowerCase().includes(searchTerm.toLowerCase()) // Check if event description includes the search term
     )
     .filter((event) => !isTypeSelected || selectedTypes[event.event_type]);
 
